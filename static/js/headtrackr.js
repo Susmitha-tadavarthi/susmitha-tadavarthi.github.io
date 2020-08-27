@@ -78,6 +78,7 @@
 
   var headtrackr = {};
   headtrackr.rev = 2;
+  var canvasElement;
 
   /**
    * @constructor
@@ -200,6 +201,7 @@
         facetracker = new headtrackr.facetrackr.Tracker({ debug: params.debug, calcAngles: params.calcAngles });
         facetracker.init(canvasElement);
       }
+
 
       // track face
       facetracker.track()
