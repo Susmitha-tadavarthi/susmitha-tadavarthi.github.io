@@ -4,22 +4,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-    <script data-main="static/js/livenessCheck.js" src="static/js/require.js"></script>
-    <link rel="stylesheet" type="text/css" href="static/css/stylesheet.css" media="screen" />
+    <script data-main="../static/minJs/livenessCheck.js" src="../static/minJs/require.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css" media="screen" />
 </head>
 
 <body style="background-color:black;">
     <div id="videoContainer">
         <div id="thanks"></div>
-        <img id='loading' src='static/images/loading_blue.gif' style="display: none;">
-        <video id="inputVideo" autoplay="" playsinline=""></video>
+        <img id='loading' src='../static/images/loading_blue.gif' style="display: none;">
+        <video id="inputVideo" autoplay playsinline></video>
         <canvas id="overlay" style="display: none;"></canvas>
         <!-- <img id="direction">
         <div id="facemesh"></div> 
         <div id="demo" style="display: none;"></div>-->
         <script type="text/javascript">
-            // api_url = "http://127.0.0.1:5000";
-            api_url = "https://workflow-apps.dev.bpi-unitek.ml";
+            api_url = "http://127.0.0.1:5000";
+            // api_url = "https://workflow-apps.dev.bpi-unitek.ml";
             var videoInput = document.getElementById('inputVideo');
             var canvasOutput = document.getElementById('overlay');
             //Generate a random number between 1 and 2 where 1 indicates right and 2 indicates left

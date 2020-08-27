@@ -1,0 +1,47 @@
+#videoContainer{
+    margin: auto; 
+    height: 480px;
+    width: 640px;
+    border: 3px solid #2B96FE;
+    text-align: center; 
+    position: relative;
+}
+
+#loading{
+    margin: auto;
+    top: 100px;
+    left: 50px; 
+    position: absolute
+}
+
+#thanks{
+    top: 25px; 
+    left: 100px; 
+    position: absolute
+}
+
+#direction{
+    position : absolute;
+}
+
+#inputVideo
+{
+    position: absolute;
+    height: 480px;
+    width: 640px;
+    right: 1px ;
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+    z-index: -1;
+}
+
+#demo{
+    position: relative;
+    width: 200;
+    height: 35;
+    top: 540;
+    right: 0;
+    left: 575;
+    border: 3px solid rgb(228, 12, 12);
+}

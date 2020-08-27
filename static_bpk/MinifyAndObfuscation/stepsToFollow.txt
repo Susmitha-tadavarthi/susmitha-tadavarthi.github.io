@@ -1,0 +1,19 @@
+Take a back up of the folder "minJs" and "changedJs". Then remove them from the folder before performing these steps.
+
+Change the Names of the functions and variables:
+    - If a new variable is added to a js file please check make an entry into "changeFunctionAndVarNames.js" file with format "newValue = newValue.replace(text-to-be-replaced, text-to-which-to-be-replaced);".
+    - In the above format "text-to-be-replaced" must be in a regex patter followed by /gim for it to replace all the occurances in the file.
+    - navigate into the js folder "detection_apps\head_gesture_recognition\static"
+    - run the code in that folder => npm install ncp
+    - Install Node js
+    - run the file "changeFunctionAndVarNames.js" using node that is "node changeFunctionAndVarNames.js" in the command line or in a different IDE as comfortable.
+    - after executing new .js files will be created in changedJs folder.
+
+Minify and obfuscation:
+    - if npm is not present in local then -> install npm.
+    - install javascript-obfuscator by running the command in command prompt "npm install -g javascript-obfuscator".
+    - navigate into the js folder "detection_apps\head_gesture_recognition\static\changedJs"
+    - execute any one of the commands in the command prompt depending on requirement:
+        - complete minification and obfuscation: "javascript-obfuscator . --output ../minJs --string-array-encoding base64 --string-array-threshold 1 --dead-code-injection true --dead-code-injection-threshold 1 --disable-console-output true"
+        - Keep console logs: "javascript-obfuscator . --output ../minJs --string-array-encoding base64 --string-array-threshold 1 --dead-code-injection true --dead-code-injection-threshold 1"
+        - If the Js is becoming heavy and taking time to load, then you can avoid the injection of dead code: "javascript-obfuscator . --output ../minJs --string-array-encoding base64 --string-array-threshold 1 --disable-console-output true"

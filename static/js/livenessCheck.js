@@ -1,7 +1,8 @@
+'use strict';
 define("livenessCheck", ["headtrackr", "blobMotionDetector", "https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"], function (headtrackr, BlobMotionDetector, facemesh) {
     return function livenessCheck(params) {
 
-        var htracker, htrackerCanvas,
+        let htracker, htrackerCanvas,
             video, videoWidth, videoHeight,
             canvas, ctx,
             motiondetector, model, action, grid,
@@ -79,7 +80,7 @@ define("livenessCheck", ["headtrackr", "blobMotionDetector", "https://cdn.jsdeli
             }
 
             // calling the functions for getting the face estimates 
-            predictions = await getFaceEstimatesAndCreateFaceMesh();
+            let predictions = await getFaceEstimatesAndCreateFaceMesh();
             // console.log(predictions);
             await testOrientation(predictions, "false");
 
@@ -119,6 +120,7 @@ define("livenessCheck", ["headtrackr", "blobMotionDetector", "https://cdn.jsdeli
         async function getFaceEstimatesAndCreateFaceMesh() {
             model = await facemesh.load();
             const predictions = await model.estimateFaces(video);
+            let noseTipX, topLeftX, bottomRightX;
             toggleLoading(false);
             if (predictions.length == 1) {
                 estimatesLoaded = true
@@ -134,7 +136,7 @@ define("livenessCheck", ["headtrackr", "blobMotionDetector", "https://cdn.jsdeli
                 errorTrackerStatus("more-faces");
             } else {
                 estimatesLoaded = false
-                turnToCenter = 0;
+                // turnToCenter = 0;
                 // alert("Error detecting the face! Please turn front and perform the action expected");
                 errorTrackerStatus("Face-not-detected");
             }
@@ -166,9 +168,9 @@ define("livenessCheck", ["headtrackr", "blobMotionDetector", "https://cdn.jsdeli
                         body: JSON.stringify(testOrientationReq)
                     });
                     if (response.ok) {
-                        var evt;
-                        testOrientationRes = await response.json();
-                        liveness = testOrientationRes["liveness"]
+                        let evt;
+                        let testOrientationRes = await response.json();
+                        let liveness = testOrientationRes["liveness"]
                         if (liveness == true) {
                             const webhook_url = api_url+"/head_gesture/gesture_recognition_result/"+grid+"/";
                             let response = await fetch(webhook_url,  {
